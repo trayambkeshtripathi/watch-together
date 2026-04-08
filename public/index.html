@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Watch Together</title>
+</head>
+<body style="text-align:center; font-family:sans-serif;">
+
+<h1>🎬 Watch Together</h1>
+
+<div id="join-section">
+    <input id="roomInput" placeholder="Enter Room ID">
+    <button onclick="joinRoom()">Join Room</button>
+</div>
+
+<div id="main-section" style="display:none;">
+    <h3 id="roomText"></h3>
+
+    <!-- Video Call -->
+    <video id="myVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+
+    <br><br>
+
+    <!-- Movie -->
+    <video id="movie" width="300" controls>
+        <source src="sample.mp4" type="video/mp4">
+    </video>
+
+    <br><br>
+
+    <button onclick="playMovie()">▶ Play</button>
+    <button onclick="pauseMovie()">⏸ Pause</button>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
