@@ -7,29 +7,34 @@
 
 <h1>🎬 Watch Together</h1>
 
-<div id="join-section">
-    <input id="roomInput" placeholder="Enter Room ID">
-    <button onclick="joinRoom()">Join Room</button>
-</div>
 
-<div id="main-section" style="display:none;">
-    <h3 id="roomText"></h3>
+<div id="main-section" style="display:none; height:100vh;">
 
-    <!-- Video Call -->
-    <video id="myVideo" autoplay muted></video>
-    <video id="remoteVideo" autoplay></video>
+    <div style="display:flex; height:100%;">
 
-    <br><br>
+        <!-- LEFT: Your video -->
+        <div style="width:15%; background:#111;">
+            <video id="myVideo" autoplay muted style="width:100%;"></video>
+        </div>
+	<input type="file" id="videoInput" accept="video/*">
+        <!-- CENTER: Movie -->
+        <div style="width:70%; text-align:center; background:black;">
+            <video id="movie" controls style="width:100%; height:100%;">
+                <source src="" id="movieSource">
+            </video>
 
-    <!-- Movie -->
-    <video id="movie" width="300" controls>
-        <source src="sample.mp4" type="video/mp4">
-    </video>
+            <br>
+            <button onclick="playMovie()">▶</button>
+            <button onclick="pauseMovie()">⏸</button>
+        </div>
 
-    <br><br>
+        <!-- RIGHT: Remote video -->
+        <div style="width:15%; background:#111;">
+            <video id="remoteVideo" autoplay style="width:100%;"></video>
+        </div>
 
-    <button onclick="playMovie()">▶ Play</button>
-    <button onclick="pauseMovie()">⏸ Pause</button>
+    </div>
+
 </div>
 
 <script src="/socket.io/socket.io.js"></script>

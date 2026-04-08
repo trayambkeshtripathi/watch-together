@@ -14,6 +14,15 @@ const config = {
     ]
 };
 
+const videoInput = document.getElementById("videoInput");
+
+videoInput.addEventListener("change", function () {
+    const file = this.files[0];
+    const url = URL.createObjectURL(file);
+
+    movie.src = url;
+});
+
 async function joinRoom() {
     roomId = document.getElementById("roomInput").value;
 
